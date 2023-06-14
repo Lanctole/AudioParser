@@ -1,0 +1,31 @@
+﻿@model string
+
+@using (Html.BeginForm("Parse", "Scraper", FormMethod.Post))
+{
+    <style>
+        .form-group {
+            margin-bottom: 7px;
+        }
+
+        
+    </style>
+    <div class="form-group" >
+        @Html.Label("URL")
+        @Html.TextBox("url", Model, new { @class = "form-control" })
+        @Html.Label("Директория сохранения")
+        @Html.TextBox("saveDir", Model, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Parse</button>
+}
+
+@if (Model != null)
+{
+    <hr />
+    <h4>Title:</h4>
+    <p>@ViewBag.Title</p>
+    <h4>Description:</h4>
+    <p>@ViewBag.Description</p>
+    <h4>Keywords:</h4>
+    <p>@ViewBag.Keywords</p>
+}
+
